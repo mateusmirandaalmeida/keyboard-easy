@@ -5,7 +5,8 @@
         vm.KeyboardEasy = {};
         configuration = {
             showNameKeyPressed: false,
-            debug: false
+            ignoreCase: false,
+            keepOrderPressed: true
         };
     }
 
@@ -36,14 +37,18 @@
 
     vm.KeyboardEasy.setConfigurations = function (configurations) {
         Object.keys(configurations).forEach(function (key) {
-            configuration[key] = configurations[key];
+          if(configuration.hasOwnProperty(key)){
+              configuration[key] = configurations[key];
+          }
         });
     }
 
     function getKeysPressed(evt) {
         var keys = "";
         var objectKeys = Object.keys(keysPressed);
-        objectKeys.sort(compare);
+        if(configuration.keepOrderPressed){
+          objectKeys.sort(compare);
+        }
         objectKeys.forEach(function (key) {
             keys += keysPressed[key].label;
         });
@@ -52,8 +57,12 @@
             buttonAction.buttons.forEach(function (character) {
                 characters += character;
             });
+            if(configuration.ignoreCase) {
+                keys = keys.toLowerCase();
+                characters = characters.toLowerCase();
+            }
             if (keys === characters && !buttonAction.executedReturn) {
-                buttonAction.callBack(evt);
+                buttonAction.callBack(evt, buttonAction.buttons);
             }
             buttonAction.executedReturn = (keys === characters) ? true : false;
         })

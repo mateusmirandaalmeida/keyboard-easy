@@ -5,22 +5,41 @@
     <title>KeyboardEasy</title>
 </head>
 <body>
+  <style>
+      body{
+        text-align: center;
+      }
+      div{
+        width: 100%;
+        height: 100%;
+      }
+      h1{
+        margin-top: 150px;
+      }
+  </style>
+
+  <h1 id="myH1">Hello my Friends</h1>
 
 
 <script src="dist/keyboard.min.js"></script>
 
 <script>
 
+    function hadlingH1(keys){
+        var h1 = document.getElementById('myH1');
+        h1.innerHTML = keys;
+    }
+
     KeyboardEasy.setConfigurations({
-        showNameKeyPressed : false
+        showNameKeyPressed : false,
+        ignoreCase: false,
+        keepOrderPressed: false
     })
 
-    KeyboardEasy.watchKeys(['a', 'b'], function (evt) {
-      console.log('apertou a e b juntos')
-    });
-
-    KeyboardEasy.watchKeys(['b', 'a'], function (evt) {
-      console.log('apertou b e a juntos')
+    KeyboardEasy.watchKeys(['a', 'b'], function (evt, keys) {
+      console.log('Last event:', evt)
+      console.log('Keys Pressed:', keys)
+      hadlingH1(keys.concat(" pressed!!"));
     });
 
 </script>

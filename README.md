@@ -17,28 +17,25 @@ KeyboardEasy.watchKeys(['KeyName', 'KeyName'], function (evt) {
   console.log('Keys Pressed!!!', evt);
 });
 ```
-## Example
-```
-KeyboardEasy.watchKeys(['a', 'b'], function (evt) {
-  console.log('Keys: a, b pressed!!!');
-});
-
-KeyboardEasy.watchKeys(['b', 'a'], function (evt) {
-  console.log('Keys: b, a pressed!!!');
-});
-```
 ## Configure options
 ```
 KeyboardEasy.setConfigurations({
-    showNameKeyPressed : true // Informs the name of the key pressed
+    showNameKeyPressed : true, // Default: false - Informs the name of the key pressed
+    ignoreCase: true, // Default: false - ignore case sensitive
+    keepOrderPressed: true // Default: true - respect order of keys pressed
 })
 
 ```
-
+## Example
+```
+KeyboardEasy.watchKeys(['a', 'b'], function (evt, keys) {
+  console.log('Last event:'+evt)
+  console.log('Keys Pressed:'+keys)
+});
+```
 ## Installation of dependencies for use or development
 ```
 npm install
 ```
-
 ## Tasks
 Run the task 'gulp' for generating the minified file.
