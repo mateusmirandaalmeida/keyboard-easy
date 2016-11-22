@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KeyboardEasy</title>
+</head>
+<body>
+
+
+<script src="dist/keyboard.min.js"></script>
+
+<script>
+
+    KeyboardEasy.setConfigurations({
+        showNameKeyPressed : false
+    })
+
+    KeyboardEasy.watchKeys(['a', 'b'], function (evt) {
+      console.log('apertou a e b juntos')
+    });
+
+    KeyboardEasy.watchKeys(['b', 'a'], function (evt) {
+      console.log('apertou b e a juntos')
+    });
+
+</script>
+
+</body>
+</html>

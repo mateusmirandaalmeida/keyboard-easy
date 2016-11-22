@@ -1,0 +1,29 @@
+{
+  "name": "keyboardeasy",
+  "version": "1.0.0",
+  "description": "Is a library for capturing keystrokes",
+  "main": "keyboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusmirandaalmeida/keyboard-easy.git"
+  },
+  "keywords": [
+    "keyboard",
+    "sequence",
+    "key"
+  ],
+  "author": "Mateus Miranda de Almeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusmirandaalmeida/keyboard-easy/issues"
+  },
+  "homepage": "https://github.com/mateusmirandaalmeida/keyboard-easy#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.0.0"
+  }
+}
